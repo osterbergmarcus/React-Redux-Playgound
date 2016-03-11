@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import TextDisplay from './TextDisplay'
 
 export default class TextInput extends Component {
   constructor(props){
@@ -8,9 +9,20 @@ export default class TextInput extends Component {
     }
   }
   
+  _onChange(e){
+    this.setState({inputText: e.target.value})
+  }
+  
   render(){
     return (
-      <input type="text" defaultValue={this.state.inputText}></input>
+      <div>
+      <input 
+      type="text"
+      value={this.state.inputText}
+      onChange={this._onChange.bind(this)}
+      />
+      <TextDisplay text={this.state.inputText} />
+      </div>
     )
   }
 }
