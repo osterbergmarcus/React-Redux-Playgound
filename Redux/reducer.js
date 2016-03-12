@@ -1,3 +1,5 @@
+import { ADD_TODO } from './actions'
+
 
 //Helper function
 function getId(state) {
@@ -7,18 +9,19 @@ function getId(state) {
 }
 
 //Define and export reducer
-export default function reducer(state, action) {
+const reducer = (state, action) => {
   switch(action.type) {
-    case 'ADD_TODO':
-      Object.assign({}, state, {
-        todos: [{
-          text: action.text,
-          completed: false,
-          id: getId(state)
-        }, ...state.todos]
-      })
+    case ADD_TODO:
+      return Object.assign({}, state, {
+              todos: [{
+                text: action.text,
+                completed: false,
+                id: getId(state)
+              }, ...state.todos]
+            })
     default:
-      return state
+      return state;
   }
-  
 }
+
+export default reducer

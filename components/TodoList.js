@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   render(){
     return (
-      <div>
-      This is todolist
-      </div>
+      <ul>
+      {this.props.todos.map(todo => {
+          return <li key={todo.id}>{todo.text}</li>
+      })}
+      </ul>
     )
   }
 }
+
+export default TodoList

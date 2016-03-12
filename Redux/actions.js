@@ -1,13 +1,11 @@
-//Actions
-const ADD_TODO = 'ADD_TODO'
+//Define and export actions
+export const ADD_TODO = 'ADD_TODO'
 
 
-//Define and export ACTION CREATORS
-export default actions = {
-  addTodo(text){
-    return {
-      type: ADD_TODO,
-      text: text
-    }
+//Define and export action creators
+export const addTodo = (text) => {
+  return {
+    type: ADD_TODO,
+    text: text
   }
 }
