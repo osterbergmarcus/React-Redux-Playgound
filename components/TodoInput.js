@@ -12,6 +12,11 @@ export default class TodoInput extends Component {
     this.setState({inputText: e.target.value})
   }
   
+  _handleSubmit(event){
+    console.log('submit working')
+    this.props.getState()
+  }
+  
   render(){
     return (
       <div>
@@ -21,7 +26,7 @@ export default class TodoInput extends Component {
         value={this.state.inputText}
         onChange={this._handleChange.bind(this)}
         />
-        <input type="submit" />
+        <button onClick={this._handleSubmit.bind(this)}>Submit</button>
       </div>
     )
   }
