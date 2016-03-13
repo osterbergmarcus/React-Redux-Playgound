@@ -1,7 +1,6 @@
 import { applyMiddleware, compose, createStore } from 'redux'
-import reducer                                   from './reducer'
 import logger                                    from 'redux-logger'
-
+import rootReducer                               from './reducers'
 
 //Middleware
 let appCreateStore = compose(
@@ -11,6 +10,6 @@ let appCreateStore = compose(
 //configure and creating store
 //using es6 default parameters
 //initialState = initialState || {todos: []}
-export default function configureStore(initialState = {todos: []}) {
-  return appCreateStore(reducer, initialState)  
+export default function configureStore(initialState) {
+  return appCreateStore(rootReducer, initialState)  
 }

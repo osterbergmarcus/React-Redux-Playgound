@@ -6,7 +6,11 @@ import { Provider }   from 'react-redux'
 
 
 let initialState = {
-  todos: []
+  todos: [],
+  user: {
+    username: 'Marcus',
+    id: 3
+  }
 }
 
 //set up store
