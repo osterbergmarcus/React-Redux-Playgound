@@ -1,4 +1,4 @@
-import { ADD_TODO } from './actions'
+import { ADD_TODO, COMPLETE_TODO, DELETE_TODO } from './actions'
 
 
 //Helper function
@@ -19,6 +19,19 @@ const reducer = (state, action) => {
                 id: getId(state)
               }, ...state.todos]
             })
+    case COMPLETE_TODO:
+      return Object.assign({}, state, {
+        todos: state.todos.map(todo => {
+          return todo.id === action.id ?
+            Object.assign({}, todo, {completed: !todo.completed}) : todo
+        })
+      })
+    case DELETE_TODO:
+      return Object.assign({}, state, {
+        todos: state.todos.filter(todo => {
+          return todo.id !== action.id
+        })
+        })  
     default:
       return state;
   }

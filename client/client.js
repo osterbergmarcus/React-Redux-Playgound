@@ -6,14 +6,14 @@ import { Provider }   from 'react-redux'
 
 
 let initialState = {
-  todos: [{id: 0, completed: false, text: 'test'}]
+  todos: []
 }
 
 //set up store
 let store = configureStore(initialState)
 
-//render the main component and mount to the root DOM element
-//Using the provider to pass store down the nested components
+//render the main component and mount to the root DOM elements
+//Subscribe and make store available to all nested components using Provider
 render(
   <Provider store={store}>
   <App />
